@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.token.email));
+    }
+
+    // Turnos disponibles: lectura pública (para mostrar el calendario en la web).
+    // Crear/editar/eliminar: solo admin.
+    // Excepción: un visitante puede marcar un turno como 'reservado' al reservarlo,
+    // siempre que ese turno estuviera 'disponible' (no puede liberar ni cambiar fecha/hora).
+    match /slots/{slotId} {
+      allow read: if true;
+      allow create, delete: if isAdmin();
+      allow update: if isAdmin()
+        || (
+          resource.data.status == 'disponible'
+          && request.resource.data.status == 'reservado'
+          && request.resource.data.date == resource.data.date
+          && request.resource.data.time == resource.data.time
+        );
+    }
+
+    // Reservas de consulta: las crea el visitante al reservar (datos de contacto + turno).
+    // Lectura/edición/eliminación: solo admin.
+    match /reservas/{reservaId} {
+      allow create: if request.resource.data.nombre is string
+                    && request.resource.data.nombre.size() > 0
+                    && request.resource.data.slotId is string;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Configuración (EmailJS): lectura pública (la web necesita los ids para enviar
+    // el mail de confirmación). Escritura: solo admin.
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Marcadores de admin: se gestionan manualmente desde la consola de Firebase.
+    match /admins/{email} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+  }
+}
