@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva consulta web</title>
+</head>
+<body style="margin:0; padding:0; background:#f4f6fa; font-family:Arial, Helvetica, sans-serif; color:#23365f;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4f6fa; margin:0; padding:32px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px; background:#ffffff; border-radius:16px; overflow:hidden; border:1px solid #e1e6ee;">
+          <tr>
+            <td style="background:#16243f; padding:28px;">
+              <p style="margin:0 0 8px; color:#c7d1e2; font-size:13px; text-transform:uppercase; letter-spacing:.1em;">Estudio Jurídico Pastore</p>
+              <h1 style="margin:0; color:#ffffff; font-size:28px; line-height:1.2; font-family:Georgia, 'Times New Roman', serif;">Nueva consulta desde la web</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; width:34%; font-size:14px;">Nombre</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;"><strong>{{nombre}}</strong></td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; font-size:14px;">Email</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;"><a href="mailto:{{email}}" style="color:#23365f; text-decoration:none;">{{email}}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; font-size:14px;">Teléfono</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;"><a href="tel:{{telefono}}" style="color:#23365f; text-decoration:none;">{{telefono}}</a></td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; font-size:14px;">Área</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;">{{area}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; font-size:14px;">Fecha solicitada</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;">{{fecha}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; color:#5c6b85; font-size:14px;">Origen</td>
+                  <td style="padding:14px 0; border-bottom:1px solid #e1e6ee; font-size:15px;">{{origen}}</td>
+                </tr>
+              </table>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:24px 0; background:#f4f6fa; border:1px solid #e1e6ee; border-radius:12px;">
+                <tr>
+                  <td style="padding:18px 20px;">
+                    <p style="margin:0 0 8px; color:#5c6b85; font-size:13px; text-transform:uppercase; letter-spacing:.08em;">Mensaje</p>
+                    <p style="margin:0; color:#23365f; font-size:15px; line-height:1.7;">{{mensaje}}</p>
+                  </td>
+                </tr>
+              </table>
+              <table role="presentation" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="border-radius:999px; background:#23365f;">
+                    <a href="https://wa.me/{{telefono_whatsapp}}" target="_blank" style="display:inline-block; padding:13px 22px; color:#ffffff; text-decoration:none; font-weight:bold; font-size:15px;">Responder por WhatsApp</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

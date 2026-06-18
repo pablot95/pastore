@@ -17,6 +17,12 @@ const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto'
 const DIAS  = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
 const escMail = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const cleanPhone = s => {
+  const phone = String(s||'').replace(/\D/g,'');
+  if (phone.startsWith('54')) return phone;
+  if (phone.startsWith('0')) return `549${phone.slice(1)}`;
+  return `549${phone}`;
+};
 function fmtFechaLarga(iso){
   const [y,m,d] = iso.split('-').map(Number);
   const dt = new Date(y, m-1, d);
@@ -234,6 +240,7 @@ async function enviarEmails(data){
     const params = {
       nombre:   escMail(data.nombre),
       telefono: escMail(data.telefono),
+      telefono_whatsapp: cleanPhone(data.telefono),
       email:    escMail(data.email),
       area:     escMail(data.area),
       mensaje:  escMail(data.mensaje),
