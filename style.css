@@ -725,34 +725,6 @@ section {
   line-height: 1.6;
 }
 
-.contacto-info-item a {
-  display: block;
-  width: fit-content;
-}
-
-.contacto-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-top: 0.35rem;
-  padding: 0.34rem 0.85rem;
-  border-radius: 999px;
-  background: #25D366;
-  color: #fff !important;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.contacto-wa svg {
-  width: 17px;
-  height: 17px;
-}
-
-.contacto-wa:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
-}
-
 .contacto-map {
   width: 100%;
   aspect-ratio: 4 / 3;
