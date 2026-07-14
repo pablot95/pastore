@@ -725,6 +725,34 @@ section {
   line-height: 1.6;
 }
 
+.contacto-info-item a {
+  display: block;
+  width: fit-content;
+}
+
+.contacto-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  padding: 0.34rem 0.85rem;
+  border-radius: 999px;
+  background: #25D366;
+  color: #fff !important;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacto-wa svg {
+  width: 17px;
+  height: 17px;
+}
+
+.contacto-wa:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
 .contacto-map {
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -1465,5 +1493,56 @@ section {
 
   .contacto-form {
     padding: 1.6rem;
+  }
+}
+
+/* ===== Botón flotante de WhatsApp ===== */
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+  z-index: 180;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: waPulse 2.6s ease-in-out infinite;
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.55);
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45), 0 0 0 14px rgba(37, 211, 102, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 52px;
+    height: 52px;
+    right: 16px;
+    bottom: 16px;
+  }
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
   }
 }
